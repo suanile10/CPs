@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <title>Login Page</title>
-<link href="Computing_Project.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/login.css" rel="stylesheet">
 </head>
 <body>
@@ -15,8 +14,8 @@
 <form name="Form1" method="post" action="<?php echo base_url();?>UserController/userLogin/" id="Form1">
 <label for="" id="Label2" style="position:absolute;left:0px;top:82px;width:111px;height:44px;line-height:44px;z-index:0;">Password :</label>
 <label for="" id="Label3" style="position:absolute;left:57px;top:214px;width:111px;height:44px;line-height:44px;z-index:1;">New? Be member</label>
-<input type="text" id="Editbox1" style="position:absolute;left:6px;top:44px;width:199px;height:28px;line-height:28px;z-index:2;" name="username" value="" spellcheck="false">
-<input type="password" id="Editbox2" style="position:absolute;left:6px;top:126px;width:199px;height:28px;line-height:28px;z-index:3;" name="password" value="" spellcheck="false">
+<input type="text" id="Editbox1" style="position:absolute;left:6px;top:44px;width:199px;height:28px;line-height:28px;z-index:2;" name="txtUsername" value="" spellcheck="false">
+<input type="password" id="Editbox2" style="position:absolute;left:6px;top:126px;width:199px;height:28px;line-height:28px;z-index:3;" name="txtPassword" value="" spellcheck="false">
 <input type="submit" id="Button1" name="" value="Login" style="position:absolute;left:66px;top:189px;width:96px;height:25px;z-index:4;">
 <a href="<?php echo base_url('redirect/registerHere')?>" style="position:absolute;left:181px;top:234px;width:96px;height:25px;z-index:5;">Register Here</a>
 <label for="" id="Label1" style="position:absolute;left:0px;top:0px;width:111px;height:44px;line-height:44px;z-index:6;">Username :</label>
