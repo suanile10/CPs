@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
+<title>Home Page</title>
 <link href="<?php echo base_url();?>assets/css/index.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/homepage.css" rel="stylesheet">
 
@@ -16,15 +16,15 @@
 </div>
 <div id="wb_CssMenu1" style="position:absolute;left:481px;top:155px;width:744px;height:70px;z-index:4;">
 <ul>
-<li class="firstmain"><a href="#" target="_self">Home</a>
+<li class="firstmain"><a href="<?php echo base_url('redirect/homepage')?>" target="_self">Home</a>
 </li>
-<li><a href="#" target="_self">Services</a>
+<li><a href="<?php echo base_url('redirect/notRegisterService')?>" target="_self">Services</a>
 </li>
 <li><a href="#" target="_self">Help</a>
 </li>
-<li><a href="#" target="_self">About&nbsp;Us</a>
+<li><a href="<?php echo base_url('redirect/aboutUs')?>" target="_self">About&nbsp;Us</a>
 </li>
-<li><a href="#" target="_self">Contact&nbsp;Us</a>
+<li><a href="<?php echo base_url('redirect/notRegisterContactus')?>" target="_self">Contact&nbsp;Us</a>
 </li>
 <li><a href="<?php echo base_url('redirect/lR')?>" target="_self">Login/Register</a>
 </li>

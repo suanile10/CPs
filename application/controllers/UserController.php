@@ -3,46 +3,43 @@
 	{
 		public function userLogin()
 		{
-			
+			$username=$this->input->post('txtUsername');
+			$password=$this->input->post('txtPassword');
 
-			$this->form_validation->set_rules('txtUsername', 'Username', 'required');
-			$this->form_validation->set_rules('txtPassword', 'Password', 'required');
+			$this->load->model('UserModel');
+			$ulogin=$this->UserModel->validateUserLogin($username,$password);
 
-			if($this->form_validation->run() === FALSE){
-				echo "Invalid username or password.";
+			$userdata=array(
+			'user_id'=>$ulogin,
+			'username'=>$username,
+			'logged_in'=>true
+			);
+			$this->session->set_userdata($userdata);
+ 
+				if ($ulogin) {
 
-			} else {
+					if($ulogin==2){
+						$this->load->library('session');
+						$this->session->set_userdata('username',$username);
+						$this->load->view('userDashboard');
+
+					}
+
+				else{
+					$this->load->library('session');
+					$this->session->set_userdata('username',$username);
+					$this->load->view('adminDashboard');
+				}
 				
-				// Get username
-				$username = $this->input->post('txtUsername');
-				// Get and encrypt the password
-				$password = $this->input->post('txtPassword');
-
-				// Login user
-				$user_id = $this->UserModel->login($username, $password);
-			
-				if($user_id == TRUE){
-					// Create session
-					$user_data = array(
-						'user_id' => $user_id,
-						'username' => $username,
-						'logged_in' => true
-					);
-
-					$this->session->set_userdata($user_data);
-
-					$this->load->view('userDashboard',$username);
-					$this->session->set_flashdata('user_loggedin', 'You are now logged in');
-
-					//redirect('posts');
-				} else {
-					// Set message
-					$this->session->set_flashdata('login_failed', 'Login is invalid');
-					echo "<h1>"."Invalid username or password."."</h1";
-					$this->load->view('login');
-					
-				}	
 			}
+			else{
+
+				$this->load->view('login');
+			echo "<h1>"."Invalid Username and Password" ."<h1>";
+			
+			 } 
+
+
 		}
 
 		public function userRegister()
@@ -112,15 +109,40 @@
 			}
 		}
 
-		public function updateName()
-		{
+		public function updateUserProfile(){
+		$uname=$this->input->post('txtUsername');
+
+		$data = array(
+
+				'first_name'=>$this->input->post('txtFname'),
+				'last_name'=>$this->input->post('txtLname'),
+				'email'=>$this->input->post('txtEmail'),
+				'password'=>$this->input->post('txtPassword'),
+				'contact_number'=>$this->input->post('txtCNum'),
+				'address'=>$this->input->post('txtAddress')
+			);
+
+			$this->load->model('UserModel');
+			$this->UserModel->UpdateUserDetail($uname,$data);
+
+			$this->getUserdata();
+
+			echo "<h1>". "Your Profile has been updated."."</h1>";				
 
 		}
 
-		public function updateNumber()
+		public function getUserdata()
 		{
+			$this->load->model('UserModel');
+			$this->load->library('session');
+			$uname=$_SESSION['username'];
+			$getData=$this->UserModel->getUserdataD($uname);
+			$data['profile']=$getData;
 
+			$this->load->view('userUpdates',$data);
 		}
+
+
 
 		public function updatePassword($user_data)
 		{
@@ -133,6 +155,27 @@
 			// $this->getUserdata($uid, $data);
 			// echo "<h1>"."Your Profile has been updated."."</h1>";
 		}
+
+		public function getUserDetails(){
+
+		$uid=$this->input->get('user_id');
+		$this->load->model('UserModel');
+
+		$getS=$this->UserModel->getUserDetail($uid);
+		/*$getrouteid=$this->UserModel->getRouteId();
+		$getvid=$this->Vehicle_mgmt->getVId();*/
+
+			// $data['rid']=$getrouteid;
+			// $data['vid']=$getvid;
+			$data['sdetails']=$getS;
+
+
+		//$this->load->view('update_schedule',$data);
+echo "helo";
+	}
+
+
+
 	}
 	
 ?>

@@ -1,3 +1,16 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST['form_name'] == 'logoutform')
+{
+   if (session_id() == "")
+   {
+      session_start();
+   }
+   unset($_SESSION['username']);
+  // unset($_SESSION['fullname']);
+   header('Location: login');
+   exit;
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -28,47 +41,38 @@
 <label for="" id="Label1" style="position:absolute;left:593px;top:797px;width:359px;height:24px;line-height:24px;z-index:8;">User Details</label>
 <table style="position:absolute;left:0px;top:865px;width:1376px;height:92px;z-index:9;" id="Table1">
 <tr>
-<td class="cell0"><div id="wb_Text3">
-<span style="color:#000000;font-family:Arial;font-size:13px;">First Name</span>
-</div>
-</td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> Last Name</span></td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Username</span></td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Email</span></td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Password</span></td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Contact Number</span></td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Address</span></td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Booking Date</span></td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Service Type</span></td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;">Book For</span></td>
-<td class="cell2">&nbsp;</td>
+<td class="cell1">First Name</td>
+<td class="cell1">Last Name</td>
+<td class="cell1">Username</td>
+<td class="cell1">Email</span></td>
+<td class="cell1">Password</span></td>
+<td class="cell1">Contact Number</span></td>
+<td class="cell1">Address</span></td>
+<td class="cell1">Action</td>
 </tr>
-<tr>
-<td class="cell3"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-<td class="cell1">&nbsp;</td>
-<td class="cell1">&nbsp;</td>
-<td class="cell1">&nbsp;</td>
-<td class="cell1">&nbsp;</td>
-<td class="cell1">&nbsp;</td>
-<td class="cell1">&nbsp;</td>
-<td class="cell1">&nbsp;</td>
-<td class="cell1">&nbsp;</td>
-<td class="cell2">&nbsp;</td>
-</tr>
-<tr>
-<td class="cell4"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-<td class="cell5"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-<td class="cell5">&nbsp;</td>
-<td class="cell5">&nbsp;</td>
-<td class="cell5">&nbsp;</td>
-<td class="cell5">&nbsp;</td>
-<td class="cell5">&nbsp;</td>
-<td class="cell5">&nbsp;</td>
-<td class="cell5">&nbsp;</td>
-<td class="cell5">&nbsp;</td>
-<td class="cell6">&nbsp;</td>
-</tr>
+
+<?php
+  if($profile->num_rows()>0)
+  {
+    foreach ($records->result() as $udata) 
+    { ?>
+
+		<tr>
+			<td class="cell1"><?= $udata->first_name?></td>
+			<td class="cell1"><?= $udata->last_name?></td>
+			<td class="cell1"><?= $udata->username?></td>
+			<td class="cell1"><?= $udata->password?></td>
+			<td class="cell1"><?= $udata->contact_number?></td>
+			<td class="cell1"><?= $udata->address?></td>
+			<td>
+				<a href="<?php echo base_url();?>Vehicle_ctrl/getUserDetail?uid=<?php echo  $udata->user_id;?>"><h3>Update </h3></a>
+			</td>
+
+		</tr>
+	
+
+	<?php } } ?>
+
 </table>
 </body>
 </html>

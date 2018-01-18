@@ -57,35 +57,49 @@
 			}
 		}
 
-		public function updateName()
+		public function getUserData($uid)
 		{
-
-		}
-
-		public function updateNumber()
-		{
-
-		}
-
-		public function getUserData($uid){
 
 			$this->db->select('*');
 			$this->db->from('user');
 			
-
 			$sql = $this->db->get();
 
-			if ($sql->num_rows() == 1) {
-			return $sql->result();
+			if ($sql->num_rows() == 1)
+			{
+				return $sql->result();
 			} 
-
 			else
 			{
-
-			return false;
+				return false;
 
 			}
-}
+		}
+
+		public function UpdateUserDetail($uname,$data)
+		{
+			$this->db->where('username',$uname);
+			$this->db->update('tblusers',$data);
+
+			return "user updated";
+		}
+
+		public function getUserDataD($uname){
+
+				$condition="username =". "'". $uname. "'";
+				$this->db->select('*');
+				$this->db->from('tblusers');
+				$this->db->where($condition);
+
+				$sql= $this->db->get();
+
+				if ($sql->num_rows()== 1) {
+					return $sql->result();
+				}
+				else{
+					return false;
+				}
+		}
 
 		public function updatePassword($user_data)
 		{
@@ -96,6 +110,45 @@
 			$this->db->where('user_id', $this->input->post('user_id'));
 			return $this->db->update('tblusers', $data);
 		}
+
+		public function validateUserLogin($username,$password)
+		{
+			$sql=$this->db->where(['username'=>$username,'password'=>$password])->get('tblusers');
+			if($sql->num_rows()>=1)
+			{
+				return $sql->row()->user_type_id;
+			}
+			else{
+				//echo "Sorry Try again";
+				//return false;
+			}
+	}
+
+
+
+		public function getUserDetail($uid)
+		{
+
+		$condition = "user_id =" . "'" . $sid . "'";
+			$this->db->select('*');
+			$this->db->from('tblusers');
+			$this->db->where($condition);
+
+			$sql = $this->db->get();
+
+			if ($sql->num_rows() == 1)
+			{
+				return $sql->result();
+			} 
+
+			else
+			{
+
+			return false;
+
+			}
+		}
+
 
 	}
 ?>

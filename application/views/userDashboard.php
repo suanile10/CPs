@@ -55,7 +55,7 @@ $uname=$_SESSION['username'];
 <label for="" id="Label2" style="position:absolute;left:602px;top:261px;width:183px;height:62px;line-height:62px;z-index:8;"><?php echo "<b>"."$uname"."</b>";?></label>
 <div id="wb_CssMenu2" style="position:absolute;left:18px;top:297px;width:336px;height:156px;z-index:9;">
 <ul>
-<li class="firstmain"><a href="<?php echo base_url();?>redirect/userUpdates" target="_self">Update&nbsp;Profile</a>
+<li class="firstmain"><a href="<?php echo base_url();?>UserController/getUserdata" target="_self">Update&nbsp;Profile</a>
 </li>
 <li><a href="<?php echo base_url();?>redirect/registerService" target="_self">Choose&nbsp;Service</a>
 </li>

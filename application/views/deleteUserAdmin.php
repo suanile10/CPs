@@ -14,7 +14,7 @@
 <img src="<?php echo base_url();?>assets/images/LOGO.jpg.png" id="Image1" alt=""></div>
 <div id="wb_CssMenu1" style="position:absolute;left:481px;top:155px;width:744px;height:70px;z-index:8;">
 <ul>
-<li class="firstmain"><a href="#" target="_self">Home</a>
+<li class="firstmain"><a href="<?php echo base_url('redirect/adminDashboard');?>" target="_self">Home</a>
 </li>
 <li><a href="#" target="_self">Services</a>
 </li>
@@ -27,11 +27,11 @@
 </ul>
 </div>
 <div id="wb_Form1" style="position:absolute;left:0px;top:197px;width:441px;height:490px;z-index:9;">
-<form name="Form1" method="post" action="mailto:yourname@yourdomain.com" enctype="text/plain" id="Form1">
+<form name="Form1" method="post" action="" enctype="text/plain" id="Form1">
 <label for="" id="Label1" style="position:absolute;left:81px;top:21px;width:271px;height:33px;line-height:33px;z-index:1;">Enter Username to Delete</label>
 <input type="text" id="Editbox1" style="position:absolute;left:109px;top:80px;width:188px;height:16px;line-height:16px;z-index:2;" name="txtUsername" value="" spellcheck="false">
 <input type="submit" id="Button1" name="btnOk" value="Ok" style="position:absolute;left:137px;top:142px;width:96px;height:25px;z-index:3;">
-<input type="submit" id="Button2" name="btnCancel" value="Cancel" style="position:absolute;left:149px;top:189px;width:96px;height:25px;z-index:4;">
+<input type="submit" id="Button2" name="btnCancel" value="Cancel" style="position:absolute;left:137px;top:189px;width:96px;height:25px;z-index:4;">
 </form>
 </div>
 <picture id="wb_Picture1" style="position:absolute;left:441px;top:197px;width:934px;height:489px;z-index:10">

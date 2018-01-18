@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
+<title>Services Page</title>
 <link href="<?php echo base_url();?>assets/css/notRegisterService.css" rel="stylesheet">
 </head>
 <body>
