@@ -39,40 +39,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST
 <img src="<?php echo base_url();?>assets/images/grup1.jpg" id="Picture1" alt="" srcset="">
 </picture>
 <label for="" id="Label1" style="position:absolute;left:593px;top:797px;width:359px;height:24px;line-height:24px;z-index:8;">User Details</label>
-<table style="position:absolute;left:0px;top:865px;width:1376px;height:92px;z-index:9;" id="Table1">
+<table  border='1' style="position:absolute;left:0px;top:865px;width:1376px;height:92px;z-index:9;" id="Table1">
 <tr>
-<td class="cell1">First Name</td>
-<td class="cell1">Last Name</td>
-<td class="cell1">Username</td>
-<td class="cell1">Email</span></td>
-<td class="cell1">Password</span></td>
-<td class="cell1">Contact Number</span></td>
-<td class="cell1">Address</span></td>
-<td class="cell1">Action</td>
+<td  >First Name</td>
+<td  >Last Name</td>
+<td  >Username</td>
+<td  >Email</span></td>
+<td  >Password</span></td>
+<td  >Contact Number</span></td>
+<td  >Address</span></td>
+<td  >Action</td>
 </tr>
-
 <?php
-  if($profile->num_rows()>0)
-  {
-    foreach ($records->result() as $udata) 
-    { ?>
-
+if( !empty($details) ) {
+    // foreach($results as $row) {
+    foreach ($details as $row)
+    {
+      ?>
 		<tr>
-			<td class="cell1"><?= $udata->first_name?></td>
-			<td class="cell1"><?= $udata->last_name?></td>
-			<td class="cell1"><?= $udata->username?></td>
-			<td class="cell1"><?= $udata->password?></td>
-			<td class="cell1"><?= $udata->contact_number?></td>
-			<td class="cell1"><?= $udata->address?></td>
-			<td>
-				<a href="<?php echo base_url();?>Vehicle_ctrl/getUserDetail?uid=<?php echo  $udata->user_id;?>"><h3>Update </h3></a>
-			</td>
+			<td  ><?= $row->first_name?></td>
+			<td  ><?= $row->last_name?></td>
+			<td  ><?= $row->username?></td>
+			<td  ><?= $row->email?></td>
+			<td  ><?= $row->password?></td>
+			<td  ><?= $row->contact_number?></td>
+			<td  ><?= $row->address?></td>
+			<td> 
+			 	<a href="<?php echo base_url();?>Vehicle_ctrl/getUserDetail?uid=<?php echo  $row->user_id;?>"><h3>Update </h3></a>
+			</td> 
 
 		</tr>
-	
-
-	<?php } } ?>
-
+ <?php
+  }
+}
+?>
 </table>
 </body>
 </html>

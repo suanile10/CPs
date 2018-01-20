@@ -1,8 +1,21 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST['form_name'] == 'logoutform')
+{
+   if (session_id() == "")
+   {
+      session_start();
+   }
+   unset($_SESSION['username']);
+   unset($_SESSION['fullname']);
+   header('Location: ./login.html');
+   exit;
+}
+?>s
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
+<title></title>
 <link href="<?php echo base_url();?>assets/css/deleteUserAdmin.css" rel="stylesheet">
 </head>
 <body>
@@ -27,12 +40,16 @@
 </ul>
 </div>
 <div id="wb_Form1" style="position:absolute;left:0px;top:197px;width:441px;height:490px;z-index:9;">
-<form name="Form1" method="post" action="" enctype="text/plain" id="Form1">
+<form name="Form1" method="post" action="<?php echo base_url();?>UserController/userDelete" id="Form1">
 <label for="" id="Label1" style="position:absolute;left:81px;top:21px;width:271px;height:33px;line-height:33px;z-index:1;">Enter Username to Delete</label>
 <input type="text" id="Editbox1" style="position:absolute;left:109px;top:80px;width:188px;height:16px;line-height:16px;z-index:2;" name="txtUsername" value="" spellcheck="false">
+<?php
+	foreach($details as $uid){
+	 ?>
+<?php }?>
 <input type="submit" id="Button1" name="btnOk" value="Ok" style="position:absolute;left:137px;top:142px;width:96px;height:25px;z-index:3;">
-<input type="submit" id="Button2" name="btnCancel" value="Cancel" style="position:absolute;left:137px;top:189px;width:96px;height:25px;z-index:4;">
-</form>
+<!-- <input type="submit" id="Button2" name="btnCancel" value="Cancel" style="position:absolute;left:137px;top:189px;width:96px;height:25px;z-index:4;">
+ --></form>
 </div>
 <picture id="wb_Picture1" style="position:absolute;left:441px;top:197px;width:934px;height:489px;z-index:10">
 <img src="<?php echo base_url();?>assets/images/grup1.jpg" id="Picture1" alt="" srcset="">

@@ -1,14 +1,23 @@
 <?php 
 	class ServiceController extends CI_Controller
 	{
-		public function getServices()
+		public function selectService()
 		{
 			$this->load->model('ServiceModel');
-			
-			$data['sid']=$getserviceid;
+			$data['records']=$this->ServiceModel->selectService();
 			$this->load->view('registerService',$data);
-			$getserviceid=$this->ServiceModel->getServiceID();
-
 		}
+
+		public function insertService()
+		{
+			$uname = $this->input->post('cmbService');
+			$sid =  $this->input->post('cmbService');
+			$this->load->model('ServiceModel');
+				$this->UserModel->userRegister($uname,$sid);
+				
+				$this->load->view('viewServices');
+				
+		}
+
 	}
 ?>

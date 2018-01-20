@@ -1,7 +1,19 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST['form_name'] == 'logoutform')
+{
+   if (session_id() == "")
+   {
+      session_start();
+   }
+   unset($_SESSION['username']);
+  // unset($_SESSION['user_id']);
 
-$this->load->library('session');
+   exit;
+}
 $uname=$_SESSION['username'];
+//$uid=$_SESSION['uid'];
+
+
 ?>
 <!doctype html>
 <html>
@@ -11,7 +23,6 @@ $uname=$_SESSION['username'];
 <link href="<?php echo base_url();?>assets/css/registerService.css" rel="stylesheet">
 </head>
 <body>
-
 <div id="Layer1" style="position:absolute;text-align:left;left:243px;top:0px;width:1130px;height:197px;z-index:14;">
 <div id="wb_Text1" style="position:absolute;left:394px;top:69px;width:302px;height:74px;z-index:0;">
 <h1>We Care We Love<br></h1></div>
@@ -38,32 +49,53 @@ $uname=$_SESSION['username'];
 <img src="<?php echo base_url();?>assets/images/grup1.jpg" id="Image2" alt=""></div>
 <div id="wb_Image3" style="position:absolute;left:1583px;top:432px;width:0px;height:0px;z-index:18;">
 <img src="" id="Image3" alt=""></div>
-<label for="" id="Label1" style="position:absolute;left:573px;top:687px;width:281px;height:65px;line-height:65px;z-index:19;">Our Services</label>
-<div id="Layer2" style="position:absolute;text-align:left;left:109px;top:816px;width:28px;height:20px;z-index:20;">
+<!-- <label for="" id="Label1" style="position:absolute;left:573px;top:687px;width:281px;height:65px;line-height:65px;z-index:19;">Our Services</label>
+ --><div id="Layer2" style="position:absolute;text-align:left;left:109px;top:1016px;width:28px;height:20px;z-index:20;">
 </div>
-<div id="Layer3" style="position:absolute;text-align:left;left:1px;top:741px;width:449px;height:174px;z-index:21;">
-	<?php
-		foreach ($sid as $udata) {
-		}
+<table border="1" style="position:absolute;text-align:left;left:660px;top:751px;">
+<tr>
+	<th><h1>S.N.</h1></th>
+    <th><h1>Services</h1></th>
+    <th><h1>Cost</h1></th>
+</tr>
 
-	?>
+  <?php
+    foreach ($records as $sdata)
+    {
+      ?>
 
-<label for="" id="Label2" style="position:absolute;left:43px;top:15px;width:81px;height:24px;line-height:24px;z-index:1;">Walking :</label>
-<input type="submit" id="Button1" name="btnService1" value="Choose" style="position:absolute;left:148px;top:123px;width:90px;height:39px;z-index:2;">
-<label for="" id="Label5" style="position:absolute;left:60px;top:58px;width:64px;height:18px;line-height:18px;z-index:3;">Cost:</label>
-<label for="" id="Label8" style="position:absolute;left:175px;top:58px;width:59px;height:18px;line-height:18px;z-index:4;"><?php echo $udata->service_cost ?></label>
-</div>
-<div id="Layer4" style="position:absolute;text-align:left;left:458px;top:741px;width:450px;height:174px;z-index:22;">
-<label for="" id="Label3" style="position:absolute;left:44px;top:15px;width:81px;height:24px;line-height:24px;z-index:5;">Health :</label>
-<input type="submit" id="Button2" name="btnService1" value="Choose" style="position:absolute;left:160px;top:123px;width:90px;height:39px;z-index:6;">
-<label for="" id="Label6" style="position:absolute;left:61px;top:58px;width:64px;height:18px;line-height:18px;z-index:7;">Cost:</label>
-<label for="" id="Label9" style="position:absolute;left:198px;top:58px;width:64px;height:18px;line-height:18px;z-index:8;">Amount</label>
-</div>
-<div id="Layer5" style="position:absolute;text-align:left;left:916px;top:741px;width:449px;height:174px;z-index:23;">
-<label for="" id="Label4" style="position:absolute;left:50px;top:15px;width:81px;height:24px;line-height:24px;z-index:9;">Training :</label>
-<input type="submit" id="Button3" name="btnService1" value="Choose" style="position:absolute;left:179px;top:123px;width:90px;height:39px;z-index:10;">
-<label for="" id="Label7" style="position:absolute;left:76px;top:58px;width:64px;height:18px;line-height:18px;z-index:11;">Cost:</label>
-<label for="" id="Label10" style="position:absolute;left:179px;top:58px;width:64px;height:18px;line-height:18px;z-index:12;">Amount</label>
+	<tr>
+		
+		<td><h3><?= $sdata->service_id?></h3></td>
+		<td><h3><?= $sdata->service_name?></h3></td>
+		<td><h3><?= $sdata->service_cost?></h3></td>
+	</tr>
+  <?php
+  }
+?>
+
+
+</table>
+<div>
+<form   action="<?PHP echo base_url();?>ServiceController/selectService"  id="Form1" method="post" style="position:absolute;text-align:left;left:1px;top:751px;">
+
+<input type="hidden" name="username" value="<?php echo $uname;?>">
+<label for="" id="Label1" style="position:absolute;left:0px;top:0px;width:260px;height:61px;line-height:61px;z-index:0;">Choose Services</label>
+<select name="cmbServices" id="Combobox1" style="position: absolute;left: 335px;top: 0px;width: 310px; height: 69px;" >
+ <?php
+ foreach ($records as $sdata ) {
+
+ ?>
+}
+	<option style="font-size:25px; "><?php echo $sdata->service_id?></option>
+
+<?php
+}
+?>
+</select>
+<input type="submit" id="Button1"  value="Choose" style="position:absolute;left:276px;top:125px;width:219px;height:61px;z-index:2;">
+
+</form>
 </div>
 </body>
 </html>

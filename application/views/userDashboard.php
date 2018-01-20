@@ -57,7 +57,7 @@ $uname=$_SESSION['username'];
 <ul>
 <li class="firstmain"><a href="<?php echo base_url();?>UserController/getUserdata" target="_self">Update&nbsp;Profile</a>
 </li>
-<li><a href="<?php echo base_url();?>redirect/registerService" target="_self">Choose&nbsp;Service</a>
+<li><a href="<?php echo base_url();?>ServiceController/selectService" target="_self">Choose&nbsp;Service</a>
 </li>
 <li><a href="<?php echo base_url();?>redirect/userViewServices" target="_self">View&nbsp;Service</a>
 </li>

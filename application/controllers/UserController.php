@@ -174,7 +174,40 @@
 echo "helo";
 	}
 
+		public function fetchUserDetail()
+		{
+			$this->load->model('UserModel');
+			$this->load->library('session');
 
+			$data['fetch_data']=$this->UserModel->fetchUserDetail();
+			$this->load->view("viewUserAdmin",$data);
+
+
+		}
+
+		public function deleteUserDe()
+		{
+			$this->load->model('UserModel');
+			$getUser=$this->UserModel->selectUser();
+			$data['details']=$getUser;
+			
+
+			$this->load->view('deleteUserAdmin',$data);
+		}
+
+		public function userDelete()
+		{
+			$vhid=$this->input->post('txtUsername');
+			//$id=$this->input->get('id');
+			$this->load->model('UserModel');
+			$this->UserModel->deleteUser($vhid);
+
+			
+			$this->deleteUserDe();
+			echo "<h1>"."User Deleted Successful"."</h1>";
+
+			
+		}
 
 	}
 	

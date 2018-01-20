@@ -149,6 +149,27 @@
 			}
 		}
 
+		public function fetchUserDetail($uid)
+		{
+			//select * from tblusers
+			$query = $this->db->get("tblusers");
+			return $query;
+		}
+
+		public function selectUser()
+		{
+			$this->db->select('*');
+			$this->db->from('tblusers');
+			$query=$this->db->get();
+			return $query->result();
+		}
+		public function deleteUser($uid)
+		{
+			$this->db->where('username',$uid);
+			$this->db->delete('tblusers');
+			return "deleted";
+
+		}
 
 	}
 ?>

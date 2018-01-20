@@ -1,4 +1,16 @@
-<!doctype html>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST['form_name'] == 'logoutform')
+{
+   if (session_id() == "")
+   {
+      session_start();
+   }
+   unset($_SESSION['username']);
+   //unset($_SESSION['fullname']);
+   header('Location: ./login.html');
+   exit;
+}
+?><!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -32,7 +44,7 @@
 <label for="" id="Label2" style="position:absolute;left:600px;top:251px;width:183px;height:62px;line-height:62px;z-index:8;">ADMIN</label>
 <div id="wb_CssMenu2" style="position:absolute;left:20px;top:297px;width:336px;height:156px;z-index:9;">
 <ul>
-<li class="firstmain"><a href="<?php echo base_url('redirect/viewUserAdmin')?>" target="_self">View&nbsp;User</a>
+<li class="firstmain"><a href="<?php echo base_url();?>AdminController/selectUser" target="_self">View&nbsp;User</a>
 </li>
 <li><a href="<?php echo base_url('redirect/deleteUserAdmin')?>" target="_self">Delete&nbsp;User</a>
 </li>
