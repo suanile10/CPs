@@ -1,8 +1,13 @@
+<?php
+
+$this->load->library('session');
+$uname=$_SESSION['username'];
+?>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
+<title>Services Page</title>
 <link href="<?php echo base_url();?>assets/css/viewServices.css" rel="stylesheet">
 </head>
 <body>
@@ -17,39 +22,41 @@
 <img src="<?php echo base_url();?>assets/images/LOGO.jpg.png" id="Image1" alt=""></div>
 <div id="wb_CssMenu1" style="position:absolute;left:579px;top:143px;width:744px;height:70px;z-index:7;">
 <ul>
-<li class="firstmain"><a href="#" target="_self">Home</a>
+<li class="firstmain"><a href="<?php echo base_url();?>redirect/adminDashboard" target="_self">Home</a>
 </li>
-<li><a href="#" target="_self">Services</a>
+<li><a href="<?php echo base_url();?>ServiceController/adminService" target="_self">Services</a>
 </li>
-<li><a href="#" target="_self">Log&nbsp;Out</a>
+<li><a href="<?php echo base_url();?>UserController/logout" target="_self">Log&nbsp;Out</a>
 </li>
 </ul>
 </div>
 <label for="" id="Label1" style="position:absolute;left:617px;top:796px;width:359px;height:24px;line-height:24px;z-index:8;">Services</label>
-<table style="position:absolute;left:438px;top:857px;width:464px;height:92px;z-index:9;" id="Table1">
+<table style="position:absolute;left:438px;top:857px;width:464px;height:92px;z-index:9;" id="Table1" border="1">
 <tr>
-<td class="cell0"><div id="wb_Text2">
-<span style="color:#000000;font-family:Arial;font-size:13px;">Services</span>
-</div>
-</td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> Amount</span></td>
-<td class="cell2"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
+	<td>S.N.</td>
+	<td>Services</td>
+	<td>Amount</span></td>
+	<td>Update</td>
 </tr>
-<tr>
-<td class="cell1">&nbsp;</td>
-<td class="cell1"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-<td class="cell2"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-</tr>
-<tr>
-<td class="cell3"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-<td class="cell3"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-<td class="cell4"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-</tr>
-<tr>
-<td class="cell5"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-<td class="cell5"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-<td class="cell6"><span style="color:#000000;font-family:Arial;font-size:13px;line-height:16px;"> </span></td>
-</tr>
+<?php
+if( !empty($services) ) {
+    // foreach($results as $row) {
+    foreach ($services as $row)
+    {
+      ?>
+		<tr>
+			<td  ><?= $row->service_id?></td>
+			<td  ><?= $row->service_name?></td>
+			<td  ><?= $row->service_cost?></td>
+			<td> 
+			 	<a href="<?php echo base_url();?>ServiceController/getServiceDetails?sid=<?php echo  $row->service_id;?>"><h3>Update </h3></a>
+			</td> 
+
+		</tr>
+ <?php
+  }
+}
+?>
 </table>
 </body>
 </html>

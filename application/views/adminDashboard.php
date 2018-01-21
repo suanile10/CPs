@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
+<title>Admin Dashboard</title>
 <link href="<?php echo base_url();?>assets/css/adminDashboard.css" rel="stylesheet">
 </head>
 <body>
@@ -28,11 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST
 <ul>
 <li class="firstmain"><a href="#" target="_self">Home</a>
 </li>
-<li><a href="#" target="_self">Services</a>
+<li><a href="<?php echo base_url();?>ServiceController/adminService" target="_self">Services</a>
 </li>
-<li><a href="#" target="_self">Edit&nbsp;Profile</a>
-</li>
-<li><a href="#" target="_self">Logout</a>
+<li><a href="<?php echo base_url();?>UserController/logout" target="_self">Logout</a>
 </li>
 </ul>
 </div>
@@ -44,11 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST
 <label for="" id="Label2" style="position:absolute;left:600px;top:251px;width:183px;height:62px;line-height:62px;z-index:8;">ADMIN</label>
 <div id="wb_CssMenu2" style="position:absolute;left:20px;top:297px;width:336px;height:156px;z-index:9;">
 <ul>
-<li class="firstmain"><a href="<?php echo base_url();?>AdminController/selectUser" target="_self">View&nbsp;User</a>
+<li class="firstmain"><a href="<?php echo base_url();?>AdminController/selectUser" target="_self">Users</a>
 </li>
-<li><a href="<?php echo base_url('redirect/deleteUserAdmin')?>" target="_self">Delete&nbsp;User</a>
-</li>
-<li><a href="#" target="_self">Services</a>
+<li><a href="<?php echo base_url();?>ServiceController/adminService" target="_self">Services</a>
 </li>
 </ul>
 </div>

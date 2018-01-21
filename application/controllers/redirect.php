@@ -2,6 +2,14 @@
 
 	class Redirect extends CI_Controller
 	{
+		public function helpFile()
+		{
+			$this->load->helper('download');
+		    $data = file_get_contents(APPPATH . 'assets/files/HelpFile.pdf'.$this->uri->segment(3)); // Read the file's contents
+		    $name = $this->uri->segment(3);
+		    force_download($name, $data);
+
+		}
 		public function homepage()
 		{
 			$this->load->view('homepage');

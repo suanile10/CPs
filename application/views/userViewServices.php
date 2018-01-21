@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
+<title>Service Page</title>
 <link href="<?php echo base_url();?>assets/css/userViewServices.css" rel="stylesheet">
 </head>
 <body>
@@ -25,7 +25,7 @@
 </li>
 <li><a href="#" target="_self">Contact&nbsp;Us</a>
 </li>
-<li><a href="#" target="_self">Log&nbsp;Out</a>
+<li><a href="<?php echo base_url();?>UserController/logout" target="_self">Log&nbsp;Out</a>
 </li>
 </ul>
 </div>

@@ -156,23 +156,17 @@
 			// echo "<h1>"."Your Profile has been updated."."</h1>";
 		}
 
-		public function getUserDetails(){
+		public function getUserDetails()
+		{
+			$uid=$this->input->get('user_id');
+			$this->load->model('UserModel');
 
-		$uid=$this->input->get('user_id');
-		$this->load->model('UserModel');
+			$getS=$this->UserModel->getUserDetail($uid);
+				$data['sdetails']=$getS;
 
-		$getS=$this->UserModel->getUserDetail($uid);
-		/*$getrouteid=$this->UserModel->getRouteId();
-		$getvid=$this->Vehicle_mgmt->getVId();*/
-
-			// $data['rid']=$getrouteid;
-			// $data['vid']=$getvid;
-			$data['sdetails']=$getS;
-
-
-		//$this->load->view('update_schedule',$data);
-echo "helo";
-	}
+			//$this->load->view('update_schedule',$data);
+			echo "helo";
+		}
 
 		public function fetchUserDetail()
 		{

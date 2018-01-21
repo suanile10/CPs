@@ -15,23 +15,57 @@
 			return $query->result();		
 		}
 
-		public function getUserData()
+
+		public function UpdateUserDetail($uname,$data)
+		{
+			$this->db->where('username',$uname);
+			$this->db->update('tblusers',$data);
+
+			return "user updated";
+		}
+		public function getUserDataD($uname){
+
+				$condition="username =". "'". $uname. "'";
+				$this->db->select('*');
+				$this->db->from('tblusers');
+				$this->db->where($condition);
+
+				$sql= $this->db->get();
+
+				if ($sql->num_rows()== 1) {
+					return $sql->result();
+				}
+				else{
+					return false;
+				}
+		}
+
+		public function getUserDetail($uid)
 		{
 
-			$this->db->select('*');
-			$this->db->from('tblusers');
-			
-			$sql = $this->db->get();
+			$condition = "user_id =" . "'" . $uid . "'";
+				$this->db->select('*');
+				$this->db->from('tblusers');
+				$this->db->where($condition);
 
-			if ($sql->num_rows() == 1)
-			{
-				return $sql->result();
-			} 
-			else
-			{
-				return false;
+				$sql = $this->db->get();
 
-			}
+				if ($sql->num_rows() == 1)
+				{
+					return $sql->result();
+				} 
+				else
+				{
+					return false;
+				}
+		}
+
+		public function deleteUser($uid)
+		{
+			$this->db->where('user_id',$uid);
+			$this->db->delete('tblusers');
+
+			return "deleted";
 		}
 	}
 ?>

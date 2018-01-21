@@ -20,7 +20,7 @@ $uname=$_SESSION['username'];
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
+<title>User Dashboard</title>
 <link href="<?php echo base_url();?>assets/css/dashboard.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/userDashboard.css" rel="stylesheet">
 </head>
@@ -33,9 +33,9 @@ $uname=$_SESSION['username'];
 </div>
 <div id="wb_CssMenu1" style="position:absolute;left:481px;top:157px;width:744px;height:70px;z-index:4;">
 <ul>
-<li class="firstmain"><a href="#" target="_self">Home</a>
+<li class="firstmain"><a href="<?php echo base_url();?>redirect/userDashboard" target="_self">Home</a>
 </li>
-<li><a href="#" target="_self">Services</a>
+<li><a href="<?php echo base_url();?>" target="_self">Services</a>
 </li>
 <li><a href="#" target="_self">Help</a>
 </li>

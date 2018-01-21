@@ -15,15 +15,16 @@
 <img src="<?php echo base_url();?>assets/images/LOGO.jpg.png" id="Image1" alt=""></div>
 <div id="wb_CssMenu1" style="position:absolute;left:481px;top:155px;width:744px;height:70px;z-index:22;">
 <ul>
-<li class="firstmain"><a href="#" target="_self">Home</a>
+<li class="firstmain"><a href="redirect/homepage
+	" target="_self">Home</a>
 </li>
-<li><a href="#" target="_self">Services</a>
+<li><a href="<?php echo base_url();?>redirect/notRegisterService" target="_self">Services</a>
 </li>
-<li><a href="#" target="_self">Help</a>
+<li><a href="<?php echo base_url();?>redirect/helpFile" target="_self">Help</a>
 </li>
-<li><a href="#" target="_self">About&nbsp;Us</a>
+<li><a href="<?php echo base_url();?>redirect/aboutUs" target="_self">About Us</a>
 </li>
-<li><a href="#" target="_self">Contact&nbsp;Us</a>
+<li><a href="<?php echo base_url();?>redirect/notRegistrContactus" target="_self">Contact Us</a>
 </li>
 </ul>
 </div>

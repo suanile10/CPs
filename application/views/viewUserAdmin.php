@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Page</title>
+<title>User Page</title>
 <link href="<?php echo base_url();?>assets/css/viewUserAdmin.css" rel="stylesheet">
 </head>
 <body>
@@ -27,11 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST
 <img src="<?php echo base_url();?>assets/images/LOGO.jpg.png" id="Image1" alt=""></div>
 <div id="wb_CssMenu1" style="position:absolute;left:579px;top:143px;width:744px;height:70px;z-index:6;">
 <ul>
-<li class="firstmain"><a href="#" target="_self">Home</a>
+<li class="firstmain"><a href="<?php echo base_url();?>redirect/adminDashboard" target="_self">Home</a>
 </li>
-<li><a href="#" target="_self">Services</a>
+<li><a href="<?php echo base_url();?>ServiceController/adminService" target="_self">Services</a>
 </li>
-<li><a href="#" target="_self">Log&nbsp;Out</a>
+<li><a href="<?php echo base_url();?>UserController/logout" target="_self">Log&nbsp;Out</a>
 </li>
 </ul>
 </div>
@@ -48,7 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['form_name']) && $_POST
 <td  >Password</span></td>
 <td  >Contact Number</span></td>
 <td  >Address</span></td>
-<td  >Action</td>
+<td  >Update Action</td>
+<td> Delete Action</td>
 </tr>
 <?php
 if( !empty($details) ) {
@@ -65,7 +66,10 @@ if( !empty($details) ) {
 			<td  ><?= $row->contact_number?></td>
 			<td  ><?= $row->address?></td>
 			<td> 
-			 	<a href="<?php echo base_url();?>Vehicle_ctrl/getUserDetail?uid=<?php echo  $row->user_id;?>"><h3>Update </h3></a>
+			 	<a href="<?php echo base_url();?>AdminController/getUserDetails?uid=<?php echo  $row->user_id;?>"><h3>Update </h3></a>
+			</td> 
+			<td> 
+			 	<a href="<?php echo base_url();?>AdminController/deleteUser?uid=<?php echo  $row->user_id;?>"><h3>Delete </h3></a>
 			</td> 
 
 		</tr>

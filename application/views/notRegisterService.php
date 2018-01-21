@@ -16,13 +16,13 @@
 <ul>
 <li class="firstmain"><a href="#" target="_self">Home</a>
 </li>
-<li><a href="#" target="_self">Services</a>
+<li><a href="<?php echo base_url('redirect/notRegisterService')?>" target="_self">Services</a>
 </li>
-<li><a href="#" target="_self">Help</a>
+<li><a href="<?php echo base_url();?>redirect/helpFile" target="_self">Help</a>
 </li>
-<li><a href="#" target="_self">About&nbsp;Us</a>
+<li><a href="#" target="_self">About Us</a>
 </li>
-<li><a href="#" target="_self">Contact&nbsp;Us</a>
+<li><a href="<?php echo base_url('redirect/notRegisterContactus')?>" target="_self">Contact&nbsp;Us</a>
 </li>
 </ul>
 </div>
@@ -37,19 +37,19 @@
 <label for="" id="Label2" style="position:absolute;left:43px;top:15px;width:81px;height:24px;line-height:24px;z-index:1;">Walking :</label>
 <input type="submit" id="Button1" name="btnService1" value="Choose" style="position:absolute;left:148px;top:123px;width:90px;height:39px;z-index:2;">
 <label for="" id="Label5" style="position:absolute;left:60px;top:58px;width:64px;height:18px;line-height:18px;z-index:3;">Cost:</label>
-<label for="" id="Label8" style="position:absolute;left:175px;top:58px;width:59px;height:18px;line-height:18px;z-index:4;">Amount</label>
+<label for="" id="Label8" style="position:absolute;left:175px;top:58px;width:59px;height:18px;line-height:18px;z-index:4;">500</label>
 </div>
 <div id="Layer4" style="position:absolute;text-align:left;left:458px;top:741px;width:450px;height:174px;z-index:22;">
 <label for="" id="Label3" style="position:absolute;left:44px;top:15px;width:81px;height:24px;line-height:24px;z-index:5;">Health :</label>
 <input type="submit" id="Button2" name="btnService1" value="Choose" style="position:absolute;left:160px;top:123px;width:90px;height:39px;z-index:6;">
 <label for="" id="Label6" style="position:absolute;left:61px;top:58px;width:64px;height:18px;line-height:18px;z-index:7;">Cost:</label>
-<label for="" id="Label9" style="position:absolute;left:198px;top:58px;width:64px;height:18px;line-height:18px;z-index:8;">Amount</label>
+<label for="" id="Label9" style="position:absolute;left:198px;top:58px;width:64px;height:18px;line-height:18px;z-index:8;">1500</label>
 </div>
 <div id="Layer5" style="position:absolute;text-align:left;left:916px;top:741px;width:449px;height:174px;z-index:23;">
 <label for="" id="Label4" style="position:absolute;left:50px;top:15px;width:81px;height:24px;line-height:24px;z-index:9;">Training :</label>
 <input type="submit" id="Button3" name="btnService1" value="Choose" style="position:absolute;left:179px;top:123px;width:90px;height:39px;z-index:10;">
 <label for="" id="Label7" style="position:absolute;left:76px;top:58px;width:64px;height:18px;line-height:18px;z-index:11;">Cost:</label>
-<label for="" id="Label10" style="position:absolute;left:179px;top:58px;width:64px;height:18px;line-height:18px;z-index:12;">Amount</label>
+<label for="" id="Label10" style="position:absolute;left:179px;top:58px;width:64px;height:18px;line-height:18px;z-index:12;">2000</label>
 </div>
 </body>
 </html>

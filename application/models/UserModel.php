@@ -129,24 +129,21 @@
 		public function getUserDetail($uid)
 		{
 
-		$condition = "user_id =" . "'" . $sid . "'";
-			$this->db->select('*');
-			$this->db->from('tblusers');
-			$this->db->where($condition);
+			$condition = "user_id =" . "'" . $sid . "'";
+				$this->db->select('*');
+				$this->db->from('tblusers');
+				$this->db->where($condition);
 
-			$sql = $this->db->get();
+				$sql = $this->db->get();
 
-			if ($sql->num_rows() == 1)
-			{
-				return $sql->result();
-			} 
-
-			else
-			{
-
-			return false;
-
-			}
+				if ($sql->num_rows() == 1)
+				{
+					return $sql->result();
+				} 
+				else
+				{
+					return false;
+				}
 		}
 
 		public function fetchUserDetail($uid)

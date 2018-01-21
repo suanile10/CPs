@@ -35,13 +35,13 @@ $uname=$_SESSION['username'];
 </li>
 <li><a href="#" target="_self">Services</a>
 </li>
-<li><a href="#" target="_self">Help</a>
+<li><a href="<?php echo base_url();?>redirect/helpFile" target="_self">Help</a>
 </li>
-<li><a href="#" target="_self">About&nbsp;Us</a>
+<li><a href="<?php echo base_url('redirect/aboutUs')?>" target="_self">About&nbsp;Us</a>
 </li>
-<li><a href="#" target="_self">Contact&nbsp;Us</a>
+<li><a href="#" target="_self">Contact  Us</a>
 </li>
-<li><a href="#" target="_self">Log&nbsp;Out</a>
+<li><a href="<?php echo base_url();?>UserController/logout" target="_self">Log&nbsp;Out</a>
 </li>
 </ul>
 </div>

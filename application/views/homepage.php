@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Home Page</title>
+<title>Vote's Care</title>
 <link href="<?php echo base_url();?>assets/css/index.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/css/homepage.css" rel="stylesheet">
 
@@ -20,11 +20,11 @@
 </li>
 <li><a href="<?php echo base_url('redirect/notRegisterService')?>" target="_self">Services</a>
 </li>
-<li><a href="#" target="_self">Help</a>
+<li><a href="<?php echo base_url(); ?>assets/files/HelpFile.pdf" download" target="_self">Help</a>
 </li>
-<li><a href="<?php echo base_url('redirect/aboutUs')?>" target="_self">About&nbsp;Us</a>
+<li><a href="<?php echo base_url('redirect/aboutUs')?>" target="_self">About Us</a>
 </li>
-<li><a href="<?php echo base_url('redirect/notRegisterContactus')?>" target="_self">Contact&nbsp;Us</a>
+<li><a href="<?php echo base_url('redirect/notRegisterContactus')?>" target="_self">Contact Us</a>
 </li>
 <li><a href="<?php echo base_url('redirect/lR')?>" target="_self">Login/Register</a>
 </li>
